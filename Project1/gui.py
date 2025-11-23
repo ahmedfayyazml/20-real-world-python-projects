@@ -19,14 +19,17 @@ while True:
             functions.add_todos("todos.txt",todos)
             window['todos'].update(values=todos)
         case "Edit":
-            todo_to_edit = values["todos"][0]
-            new_todo = values['todo']+"\n"
+            try:
+                todo_to_edit = values["todos"][0]
+                new_todo = values['todo']+"\n"
 
-            todos = functions.get_todos('todos.txt')
-            index = todos.index(todo_to_edit)
-            todos[index] = new_todo
-            functions.add_todos("todos.txt",todos)
-            window['todos'].update(values=todos)
+                todos = functions.get_todos('todos.txt')
+                index = todos.index(todo_to_edit)
+                todos[index] = new_todo
+                functions.add_todos("todos.txt",todos)
+                window['todos'].update(values=todos)
+            except IndexError:
+                sg.popup("Please Select an Item First",font=('Helvetica',20))
         case "Completed":
             todo_to_remove = values["todos"][0]
             todos = functions.get_todos("todos.txt")

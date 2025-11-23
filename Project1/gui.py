@@ -7,7 +7,7 @@ list_box =sg.Listbox(values=functions.get_todos("todos.txt"),key="todos",enable_
 edit_button = sg.Button("Edit")
 exit_button = sg.Button("Exit")
 complete_button = sg.Button("Completed")
-window = sg.Window("My Todo-App",layout=[[label],[input_text,add_button,exit_button],[list_box,edit_button,complete_button]],font=('Helvetica',20))
+window = sg.Window("My Todo-App",layout=[[label],[input_text,add_button],[list_box,edit_button,complete_button],[exit_button]],font=('Helvetica',20))
 
 while True:
     event,values = window.read()

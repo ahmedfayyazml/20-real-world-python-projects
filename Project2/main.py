@@ -59,4 +59,5 @@ with page:
 
     msg.submit(chat, [msg, chatbot], [msg, chatbot])
 
+clear.click(lambda: (None, []), None, [msg, chatbot])
 page.launch(share=True)

@@ -24,33 +24,35 @@ system_prompt = """
     Answer in 2 to 6 sentences
 """
 
-prompt = ChatPromptTemplate.from_messages([("system", system_prompt), (MessagesPlaceholder(variable_name="history")),("user", "{input}")])
+prompt = ChatPromptTemplate.from_messages(
+    [("system", system_prompt), (MessagesPlaceholder(variable_name="history")), ("user", "{input}")])
 chain = prompt | llm | StrOutputParser()
 
+
 def chat(user_input, history):
+    history = history or []
     langchain_history = []
-    for item in history:
-        if item["role"] == "user":
-            langchain_history.append(HumanMessage(content=item["content"]))
-        elif item["role"] == "assistant":
-            langchain_history.append(AIMessage(content=item["content"]))
+
+    for user_text, ai_text in history:
+        langchain_history.append(HumanMessage(content=user_text))
+        langchain_history.append(AIMessage(content=ai_text))
 
     response = chain.invoke({"input": user_input, "history": langchain_history})
 
-    history.append({"role": "user", "content": user_input})
-    history.append({"role": "assistant", "content": response})
+    history.append((user_input, response))
 
     return "", history
+
 
 page = gr.Blocks(title="Chat with Einstein")
 with page:
     gr.Markdown(
         """
         #Chat with Einstein
-        Wellcome to Your Personal conversation with Albert Einstein
+        Welcome to Your Personal conversation with Albert Einstein
         """
     )
-    chatbot = gr.Chatbot(type='messages')
+    chatbot = gr.Chatbot()
 
     msg = gr.Textbox()
     clear = gr.Button("Clear")

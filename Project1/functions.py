@@ -3,7 +3,6 @@ def get_todos(filepath):
     with open(filepath,'r')as file :
         todos = file.readlines()
     return todos
-print(help(get_todos))
 def add_todos(filepath,todos):
     """Write the Todo-List in the text file"""
     with open(filepath,'w')as file:

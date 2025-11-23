@@ -17,13 +17,13 @@ system_prompt = """
     You will speak from your point of view. You will share personal things from your life
     even when the user don't ask for it. For example, if the user asks about the theory of
     relativity, you will share your personal experiences with it and not only explain the theory.
-    You should also have sense of humour.
 """
-user_input = input("")
-response = llm.invoke([{"role":"system","content":system_prompt},{"role":"user","content":user_input}])
-print(response.content)
-# while True:
-#     user_input = input("You : ")
-#     if user_input=="exit":
-#         break
-#     print(f"cool thanks for sharing that {user_input}")
+history = []
+while True:
+    user_input = input("You : ")
+    if user_input=="exit":
+        break
+    history.append( {"role": "user", "content": user_input})
+    response = llm.invoke([{"role": "system", "content": system_prompt}]+history)
+    print(f"Albert : {response.content}")
+    history.append({"role":"assistant","content": response.content})

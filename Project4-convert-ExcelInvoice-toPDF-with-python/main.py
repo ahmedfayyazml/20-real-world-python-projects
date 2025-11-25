@@ -18,9 +18,9 @@ for filepath in filepaths:
 
     #Number
     pdf.set_font(style="B",size=16,family="Times")
-    pdf.cell(w=50,h=8,txt=f"Invoice nr{invoice_num}")
+    pdf.cell(w=50,h=8,txt=f"Invoice nr{invoice_num}",ln=1)
 
     #date
     pdf.set_font(style="B", size=16, family="Times")
-    pdf.cell(w=50, h=8, txt=f"Date : {date}")
+    pdf.cell(w=50, h=8, txt=f"Date : {date}",ln=1)
     pdf.output("PDFs/"+filename+".pdf")

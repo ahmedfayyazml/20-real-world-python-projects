@@ -22,6 +22,5 @@ for filepath in filepaths:
 
     #date
     pdf.set_font(style="B", size=16, family="Times")
-    pdf.cell(w=50, h=8, txt=f"Invoice nr{invoice_num}")
-
+    pdf.cell(w=50, h=8, txt=f"Date : {date}")
     pdf.output("PDFs/"+filename+".pdf")

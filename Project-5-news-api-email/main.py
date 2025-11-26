@@ -1,8 +1,7 @@
 import requests
-
 from send_email import send_email
 
-api_key = "568de588371843c09f4f66260cb4cab6"
+api_key = ""
 url = ("https://newsapi.org/v2/everything?q=tesla&from=2025-10-26"
        "&sortBy=publishedAt&apiKey=568de588371843c09f4f66260cb4cab6")
 #make requests

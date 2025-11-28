@@ -17,6 +17,7 @@ def api_station(station,date):
     df = pd.read_csv(filename,skiprows=20,parse_dates=["    DATE"])
     temperature = df.loc[df['    DATE']==date]['   TG'].squeeze()/10
     return {
+
         "temperature": temperature,
         "station": station,
         "date":date

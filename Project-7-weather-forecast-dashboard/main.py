@@ -7,5 +7,7 @@ days = st.slider("Forecast Days:",max_value=5,min_value=1,
 option = st.selectbox("Select data to view:",
                       ("Temperature","Sky"))
 st.subheader(f"{option} for the next {days} in {place}")
-figure = px.line()
-st.plotly_chart(days,option.value,)
+dates = ["2025-10-23","2025-10-24","2025-10-25","2025-10-26","2025-10-27"]
+temperature = [10,11,14,13,15]
+figure = px.line(x=dates,y=temperature,labels={'x':"Date",'y':"Temperature(C)"})
+st.plotly_chart(figure)

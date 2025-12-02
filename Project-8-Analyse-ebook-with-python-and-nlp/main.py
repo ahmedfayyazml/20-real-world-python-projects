@@ -7,3 +7,4 @@ import  re
 pattern = re.compile("Chapter [0-9]+")
 chapters = re.split(pattern,book)
 chapters = chapters[1:]
+

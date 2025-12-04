@@ -10,6 +10,7 @@ video = cv2.VideoCapture(0) # 0 of you are using your computer or laptop camera 
 time.sleep(1) ## it will negate the black color in the starting and help the camera load
 first_frame = None
 status_list = []
+count = 0
 while True:
     status = 0
     check,frame = video.read()
@@ -30,7 +31,7 @@ while True:
     contours,check = cv2.findContours(dil_frame,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 
     for contour in contours:
-        if cv2.contourArea(contour)<2200:
+        if cv2.contourArea(contour)<4000:
             continue
         x,y,w,h = cv2.boundingRect(contour)
         rectangle = cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)  ## wrap the object with a rectangle

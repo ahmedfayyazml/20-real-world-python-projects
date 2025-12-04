@@ -54,14 +54,18 @@ while True:
     status_list = status_list[-2:]
 
     if status_list[0]==1  and  status_list[1]==0:
-        send_email(image_with_object)
-        clean_folder()
+        email_thread = Thread(target=send_email, args=(image_with_object,))
+        email_thread.daemon = True
+        clean_thread = Thread(target=clean_folder)
+        clean_thread.daemon = True
+
+        email_thread.start()
+        clean_thread.start()
     cv2.imshow("Video",frame)
     key = cv2.waitKey(1)
     if key == ord("q"):
         break
 video.release()
-
 
 
 

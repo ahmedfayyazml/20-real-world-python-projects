@@ -2,9 +2,9 @@ import smtplib
 import mimetypes
 from email.message import EmailMessage
 
-PASSWORD = "oatq iqpx difw gaxa"
-SENDER = "babaralihaider74@gmail.com"
-RECIEVER = "babaralihaider74@gmail.com"
+PASSWORD = "" # your email
+SENDER = "" #sender email
+RECIEVER = "" #reciever email
 def send_email(image_path):
 
     email_message = EmailMessage()

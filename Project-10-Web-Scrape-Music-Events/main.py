@@ -3,6 +3,8 @@ import selectorlib
 from  emailing import send_email
 import  time
 "INSERT INTO events VALUES('Tigers','Tiger City','2088.10.14')"
+"SELECT* FROM events WHERE data = '2088.10.14'"
+"DELETE FROM events WHERE name = 'Lions'"
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 URL  = "https://programmer100.pythonanywhere.com/tours/"

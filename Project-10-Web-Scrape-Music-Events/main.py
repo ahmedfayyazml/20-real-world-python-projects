@@ -4,11 +4,12 @@ from  emailing import SendEmail
 import  time
 import  sqlite3
 
+from example import connection
 
 "INSERT INTO events VALUES('Tigers','Tiger City','2088.10.14')"
 "SELECT* FROM events WHERE data = '2088.10.14'"
 "DELETE FROM events WHERE name = 'Lions'"
-connection = sqlite3.connect('data.db')
+
 
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
@@ -28,19 +29,21 @@ class Event:
         return value
 
 
-class Email:
-    def store(extracted):
+class DataBase:
+    def __init__(self):
+        self.connection = sqlite3.connect('data.db')
+    def store(self,extracted):
         row = extracted.split(",")
         row = [item.strip() for item in row]
-        cursor = connection.cursor()
+        cursor = self.connection.cursor()
         cursor.execute("INSERT INTO events VALUES(?,?,?)",row)
-        connection.commit()
+        self.connection.commit()
 
-    def read(extracted):
+    def read(self,extracted):
         row = extracted.split(",")
         row = [item.strip() for item in row]
         band,city,date = row
-        cursor = connection.cursor()
+        cursor = self.connection.cursor()
         cursor.execute("SELECT* FROM events WHERE band = ? AND city = ? AND date = ?",(band,city,date))
         row = cursor.fetchall()
         return row
@@ -55,11 +58,11 @@ if __name__ == "__main__":
 
         # FIX: Check if extracted data is valid BEFORE calling read()
         if extracted != "No upcoming tours":
-            email = Email()
+            database = DataBase()
             send_email = SendEmail()
-            row = email.read(extracted)
+            row = database.read(extracted)
             if not row:
-                email.store(extracted)
+                database.store(extracted)
                 send_email.send_email(extracted)
 
         time.sleep(2)

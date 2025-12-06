@@ -1,6 +1,6 @@
 import  requests
 import selectorlib
-from  emailing import send_email
+from  emailing import SendEmail
 import  time
 import  sqlite3
 
@@ -28,22 +28,22 @@ class Event:
         return value
 
 
+class Email:
+    def store(extracted):
+        row = extracted.split(",")
+        row = [item.strip() for item in row]
+        cursor = connection.cursor()
+        cursor.execute("INSERT INTO events VALUES(?,?,?)",row)
+        connection.commit()
 
-def store(extracted):
-    row = extracted.split(",")
-    row = [item.strip() for item in row]
-    cursor = connection.cursor()
-    cursor.execute("INSERT INTO events VALUES(?,?,?)",row)
-    connection.commit()
-
-def read(extracted):
-    row = extracted.split(",")
-    row = [item.strip() for item in row]
-    band,city,date = row
-    cursor = connection.cursor()
-    cursor.execute("SELECT* FROM events WHERE band = ? AND city = ? AND date = ?",(band,city,date))
-    row = cursor.fetchall()
-    return row
+    def read(extracted):
+        row = extracted.split(",")
+        row = [item.strip() for item in row]
+        band,city,date = row
+        cursor = connection.cursor()
+        cursor.execute("SELECT* FROM events WHERE band = ? AND city = ? AND date = ?",(band,city,date))
+        row = cursor.fetchall()
+        return row
 
 
 if __name__ == "__main__":
@@ -55,10 +55,12 @@ if __name__ == "__main__":
 
         # FIX: Check if extracted data is valid BEFORE calling read()
         if extracted != "No upcoming tours":
-            row = read(extracted)
+            email = Email()
+            send_email = SendEmail()
+            row = email.read(extracted)
             if not row:
-                store(extracted)
-                send_email(extracted)
+                email.store(extracted)
+                send_email.send_email(extracted)
 
         time.sleep(2)
 

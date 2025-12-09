@@ -2,6 +2,7 @@ import pandas as pd
 
 df = pd.read_csv('hotels.csv',dtype={"id":str})
 card_df =pd.read_csv("cards.csv",dtype=str).to_dict(orient="records")
+secure_card_df = pd.read_csv("card_security.csv",dtype=str).to_dict(orient="records")
 class Hotel:
     def __init__(self,hotel_id):
         self.hotel_id = hotel_id
@@ -47,6 +48,9 @@ class CreditCard:
             return True
         else:
             return False
+
+class SecureCreditCard(CreditCard):
+    def authenticate(self,password):
 
 print(df)
 hotel_ID = input("Enter the id of the hotel")

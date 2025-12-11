@@ -11,7 +11,6 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Student Managment System")
 
 
-
 app = QApplication(sys.argv)
 main_window = MainWindow()
 main_window.show()

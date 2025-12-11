@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import (
     QApplication, QVBoxLayout, QLabel, QWidget,
-    QGridLayout, QLineEdit, QPushButton, QMainWindow, QTableWidget, QTableWidgetItem
+    QGridLayout, QLineEdit, QPushButton, QMainWindow, QTableWidget, QTableWidgetItem, QDialog, QComboBox
 )
 from PyQt6.QtGui import  QAction
 import sys
@@ -15,6 +15,7 @@ class MainWindow(QMainWindow):
         help_menu_item = self.menuBar().addMenu("&help")
 
         add_student_action = QAction("Add Student",self)
+        add_student_action.triggered.connect(self.insert)
         file_menu_item.addAction(add_student_action)
 
         about_action = QAction("About",self)
@@ -36,6 +37,34 @@ class MainWindow(QMainWindow):
                 self.table.setItem(row_number,column_number,QTableWidgetItem(str(data)))
 
         print(result)
+
+    def insert(self):
+        dialog = InsertDialog()
+        dialog.exec()
+
+
+class InsertDialog(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Insert Student Data")
+        self.setFixedWidth(300)
+        self.setFixedHeight(300)
+
+        layout = QVBoxLayout()
+
+        #add student name widget
+        student_name = QLineEdit()
+        student_name.setPlaceholderText("Name")
+        layout.addWidget(student_name)
+
+        # Add combo box of courses
+        course_name = QComboBox()
+        courses = ["Biology","Maths","Astronomy","Physics"]
+        course_name.addItem(courses)
+        layout.addWidget(course_name)
+        self.setLayout(layout)
+
+
 
 app = QApplication(sys.argv)
 main_window = MainWindow()

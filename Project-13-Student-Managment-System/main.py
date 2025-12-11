@@ -16,6 +16,7 @@ class MainWindow(QMainWindow):
         add_student_action = QAction("Add Student",self)
         file_menu_item.addAction(add_student_action)
 
+
         about_action = QAction("About",self)
         help_menu_item.addAction(about_action)
 

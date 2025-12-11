@@ -4,6 +4,7 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtGui import  QAction
 import sys
+import sqlite3
 
 class MainWindow(QMainWindow):
     def __init__(self):

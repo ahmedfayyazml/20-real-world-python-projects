@@ -1,5 +1,6 @@
-from sqlite3 import connect
+from idlelib.search import SearchDialog
 
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (
     QApplication, QVBoxLayout, QLabel, QWidget,
     QGridLayout, QLineEdit, QPushButton, QMainWindow, QTableWidget, QTableWidgetItem, QDialog, QComboBox
@@ -13,8 +14,9 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("Student Managment System")
 
-        file_menu_item = self.menuBar().addMenu("&file")
-        help_menu_item = self.menuBar().addMenu("&help")
+        file_menu_item = self.menuBar().addMenu("&File")
+        help_menu_item = self.menuBar().addMenu("&Help")
+        edit_menu_item = self.menuBar().addMenu("&Edit")
 
         add_student_action = QAction("Add Student",self)
         add_student_action.triggered.connect(self.insert)
@@ -22,6 +24,10 @@ class MainWindow(QMainWindow):
 
         about_action = QAction("About",self)
         help_menu_item.addAction(about_action)
+
+        search_action = QAction("Search",self)
+        edit_menu_item.addAction(search_action)
+        search_action.triggered.connect(self.search)
 
         self.table = QTableWidget()
         self.table.setColumnCount(4)
@@ -43,6 +49,11 @@ class MainWindow(QMainWindow):
     def insert(self):
         dialog = InsertDialog()
         dialog.exec()
+
+    def search(self):
+        dialog = SearchDialog()
+        dialog.exec()
+
 
 
 class InsertDialog(QDialog):

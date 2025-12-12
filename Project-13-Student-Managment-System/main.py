@@ -1,9 +1,7 @@
-from idlelib.search import SearchDialog
-
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (
     QApplication, QVBoxLayout, QLabel, QWidget,
-    QGridLayout, QLineEdit, QPushButton, QMainWindow, QTableWidget, QTableWidgetItem, QDialog, QComboBox
+    QGridLayout, QLineEdit, QPushButton, QMainWindow, QTableWidget, QTableWidgetItem, QDialog, QComboBox, QToolBar
 )
 from PyQt6.QtGui import  QAction
 import sys
@@ -34,6 +32,10 @@ class MainWindow(QMainWindow):
         self.table.setHorizontalHeaderLabels(("Id","Name","Course","Mobile"))
         self.table.verticalHeader().setVisible(False)
         self.setCentralWidget(self.table)
+
+        toolbar = QToolBar()
+        toolbar.setMovable(True)
+        self.addToolBar(toolbar)
 
     def load_data(self):
         connection = sqlite3.connect("database.db")
@@ -104,7 +106,6 @@ class InsertDialog(QDialog):
         main_window.load_data()
 
 
-
 class SearchDialog(QDialog):
     def __init__(self):
         super().__init__()
@@ -112,7 +113,8 @@ class SearchDialog(QDialog):
         self.setFixedWidth(300)
         self.setFixedHeight(300)
 
-        layout = QVBoxLayout
+        layout = QVBoxLayout()
+
         self.student_name = QLineEdit()
         self.student_name.setPlaceholderText("Name")
         layout.addWidget(self.student_name)
@@ -121,21 +123,27 @@ class SearchDialog(QDialog):
         button.clicked.connect(self.search)
         layout.addWidget(button)
 
+        # FIX 2: You must set the layout, otherwise the box is empty
+        self.setLayout(layout)
+
     def search(self):
         name = self.student_name.text()
-        connection =sqlite3.connect("database.db")
+        connection = sqlite3.connect("database.db")
         cursor = connection.cursor()
-        result = cursor.execute("SELECT* FROM students WHERE name = ?",(name))
+
+        result = cursor.execute("SELECT * FROM students WHERE name = ?", (name,))
         rows = list(result)
         print(rows)
-        items = main_window.table.findItems(name.Qt.MatchFlag.MatchFixedString)
+
+        items = main_window.table.findItems(name, Qt.MatchFlag.MatchFixedString)
+
         for item in items:
             print(item)
-            main_window.table.item(item.row(),1).setSelected(True)
+            # This highlights the cell
+            main_window.table.item(item.row(), 1).setSelected(True)
 
         cursor.close()
         connection.close()
-
 
 
 

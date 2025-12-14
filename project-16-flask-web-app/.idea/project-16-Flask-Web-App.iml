@@ -4,7 +4,7 @@
     <content url="file://$MODULE_DIR$/../project-16-flask-web-app">
       <excludeFolder url="file://$MODULE_DIR$/../project-16-flask-web-app/.venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.13 (PythonProject)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.13 (project-16-flask-web-app)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

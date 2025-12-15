@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ccaf5d4-dcc7-4965-a3ad-d4ee2942a72d" name="Changes" comment="made selekton of the project">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-16-flask-web-app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../project-16-flask-web-app/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../super-mario-python" beforeDir="false" afterPath="$PROJECT_DIR$/../super-mario-python" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +88,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765727849215</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="made selekton of the project">
+      <option name="closed" value="true" />
+      <created>1765735021435</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1765735021435</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

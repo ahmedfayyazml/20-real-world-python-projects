@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ccaf5d4-dcc7-4965-a3ad-d4ee2942a72d" name="Changes" comment="accesed all the data entered by the user">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8ccaf5d4-dcc7-4965-a3ad-d4ee2942a72d" name="Changes" comment="initialized sql database">
       <change beforePath="$PROJECT_DIR$/../project-16-flask-web-app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../project-16-flask-web-app/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../super-mario-python" beforeDir="false" afterPath="$PROJECT_DIR$/../super-mario-python" afterDir="false" />
     </list>
@@ -120,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765813903285</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="initialized sql database">
+      <option name="closed" value="true" />
+      <created>1765814906301</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1765814906301</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -129,6 +136,7 @@
     <MESSAGE value="started working on the project" />
     <MESSAGE value="got data from the form" />
     <MESSAGE value="accesed all the data entered by the user" />
-    <option name="LAST_COMMIT_MESSAGE" value="accesed all the data entered by the user" />
+    <MESSAGE value="initialized sql database" />
+    <option name="LAST_COMMIT_MESSAGE" value="initialized sql database" />
   </component>
 </project>

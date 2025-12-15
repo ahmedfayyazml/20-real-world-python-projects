@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ccaf5d4-dcc7-4965-a3ad-d4ee2942a72d" name="Changes" comment="started working on the project">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project-16-flask-web-app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../project-16-flask-web-app/main.py" afterDir="false" />
+    <list default="true" id="8ccaf5d4-dcc7-4965-a3ad-d4ee2942a72d" name="Changes" comment="got data from the form">
       <change beforePath="$PROJECT_DIR$/../project-16-flask-web-app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../project-16-flask-web-app/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../super-mario-python" beforeDir="false" afterPath="$PROJECT_DIR$/../super-mario-python" afterDir="false" />
     </list>
@@ -105,13 +103,22 @@
       <option name="project" value="LOCAL" />
       <updated>1765811853931</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="got data from the form">
+      <option name="closed" value="true" />
+      <created>1765813416393</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1765813416393</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="intialized project" />
     <MESSAGE value="made selekton of the project" />
     <MESSAGE value="started working on the project" />
-    <option name="LAST_COMMIT_MESSAGE" value="started working on the project" />
+    <MESSAGE value="got data from the form" />
+    <option name="LAST_COMMIT_MESSAGE" value="got data from the form" />
   </component>
 </project>

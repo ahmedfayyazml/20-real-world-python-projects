@@ -1,6 +1,21 @@
 from flask import Flask, render_template ,request
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+app.config["SECRET_KEY"] = "myapplication123" #add your key here
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+
+db = SQLAlchemy(app)
+
+class Form(db.Model):
+    id = db.Column(db.Integer,primary_key = True)
+    first_name = db.Column(db.String(80))
+    last_name = db.Column(db.String(80))
+    email = db.Column(db.String(80))
+    date = db.Column(db.String())
+    occupation = db.Column(db.String(80))
+
 
 @app.route("/",methods=["GET","POST"])
 def index():

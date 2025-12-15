@@ -47,6 +47,13 @@
                 </div>
             </div>
             <button class="btn btn-secondary mb-4" type="submit">Submit</button>
+            {% with messages = get_flashed_messages()%}
+            {% if messages %}
+            <div class="alert alert-success">
+                Form submitted successfully!
+            </div>
+            {% endif%}
+            {% endwith%}
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>

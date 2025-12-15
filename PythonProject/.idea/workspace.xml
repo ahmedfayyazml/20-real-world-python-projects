@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ccaf5d4-dcc7-4965-a3ad-d4ee2942a72d" name="Changes" comment="initialized sql database">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../project-16-flask-web-app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../project-16-flask-web-app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-16-flask-web-app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../project-16-flask-web-app/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../super-mario-python" beforeDir="false" afterPath="$PROJECT_DIR$/../super-mario-python" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765814906301</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="initialized sql database">
+      <option name="closed" value="true" />
+      <created>1765815089906</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1765815089906</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

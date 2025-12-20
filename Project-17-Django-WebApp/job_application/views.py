@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .forms import ApplicationForm
-from django.contrib import messages  # Optional: For success messages
+from django.contrib import messages
 from .models import Form
 
 def index(request):

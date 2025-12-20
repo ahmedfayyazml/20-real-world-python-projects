@@ -25,3 +25,6 @@ def index(request):
 
     # This line is crucial! It renders the template with the form
     return render(request, "index.html", {"form": form})
+
+def about(request):
+    return render(request,'about.html')

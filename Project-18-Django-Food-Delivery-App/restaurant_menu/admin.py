@@ -8,4 +8,5 @@ class MenuItemAdmin(admin.ModelAdmin):
     list_filter = ("status",)
     search_fields = ('meal','description')
 
+
 admin.site.register(Item,MenuItemAdmin)

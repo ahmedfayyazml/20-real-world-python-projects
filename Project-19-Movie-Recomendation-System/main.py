@@ -30,4 +30,4 @@ def weighted_rating(df,m=m,C=C):
 
 movies_filtered['weighted_rating'] = movies_filtered.apply(weighted_rating,axis=1)
 
-
+movies_filtered.sort_values('weighted_rating',ascending=False)[['title','vote_average']].head(10)
